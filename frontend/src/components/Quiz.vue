@@ -228,7 +228,7 @@ $large: 750px;
 }
 
 .play-again {
-   grid-column: 2/4;
+  grid-column: 2/4;
   color: white;
   font-weight: bold;
   background: #117DEB;
