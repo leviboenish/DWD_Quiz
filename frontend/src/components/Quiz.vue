@@ -105,7 +105,7 @@ $large: 750px;
 
 @mixin lg {
    @media (min-width: #{$large}) {
-       @content;
+     @content;
    }
 }
 
