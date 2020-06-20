@@ -9,10 +9,6 @@
         </label>
       </div>
     <button :disabled="!selectedGuess" class="submit" v-on:click="submitGuess" :class="!selectedGuess ? 'disabled' : ''">Accept</button>
-    <div class="score" :class="!endOfQuiz ? 'hide' : 'show'">
-      <h1>Score</h1>
-      <h2><span>{{ this.scoreCorrect }}</span>/{{this.questions.length}}</h2>
-    </div>
   </div>
 </template>
 
@@ -30,7 +26,6 @@ export default {
       selectedGuess: '',
       scoreCorrect: 0,
       questionCount: 1,
-      endOfQuiz: false
     };
   },
   mounted() {
@@ -86,10 +81,7 @@ export default {
     },
     handleScore: function (res) {
       if(res === true) {
-        console.log('yes');
         this.scoreCorrect++;
-      } else {
-        console.log('no');
       }
       if(this.currentQuestion < this.questions.length - 1){
         this.questionStep();
@@ -99,7 +91,8 @@ export default {
       this.selectedGuess = '';
     },
     endQuiz: function  () {
-      this.endOfQuiz = true;
+      window.localStorage.setItem('score', this.scoreCorrect);
+      this.$router.push('Score');
     }
   } 
 };
