@@ -12,12 +12,14 @@ export default {
   name: "Score",
   data() {
     return {
+        //gets score and question length from local storage for displaying values
       scoreCorrect: window.localStorage.getItem("score"),
       questions: JSON.parse(window.localStorage.getItem("questions")).length
     };
   },
   methods: {
     playAgain: function() {
+      //clears local storage and routes to start screen to start the quiz over
       window.localStorage.clear();
       this.$router.push("/");
     }
@@ -35,26 +37,12 @@ $large: 750px;
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  @include lg {
-    grid-template-columns: repeat(12, 1fr);
-  }
+  width: 80%;
+  margin: 0 auto;
 }
 
 .title {
   color: #939cc5;
-  grid-column: 1/5;
-  @include lg {
-    grid-column: 6/9;
-  }
-}
-
-.score {
-  grid-column: 1/5;
-  @include lg {
-    grid-column: 6/9;
-  }
 }
 
 .play-again {
@@ -66,11 +54,10 @@ $large: 750px;
   border-radius: 40px;
   margin-top: 3rem;
   border: none;
-  grid-column: 2/4;
   min-width: 185px;
-  @include lg {
-    grid-column: 6/9;
-  }
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+
+  
   &:focus {
     outline: none;
   }

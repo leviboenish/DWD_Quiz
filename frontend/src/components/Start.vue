@@ -11,6 +11,7 @@ export default {
   name: "Start",
   methods: {
     start: function () {
+      //routes to quiz
       this.$router.push("Quiz");
     }
   }
@@ -27,27 +28,14 @@ $large: 750px;
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  @include lg {
-    grid-template-columns: repeat(12, 1fr);
-  }
+  width: 80%;
+  margin: 0 auto;
 }
 
 #title {
   color: #939cc5;
-  grid-column: 1/5;
-  @include lg {
-    grid-column: 4/11;
-  }
 }
 
-#sub-title {
-  grid-column: 1/5;
-  @include lg {
-    grid-column: 5/10;
-  }
-}
 
 .start-button {
   color: white;
@@ -59,11 +47,11 @@ $large: 750px;
   margin-top: 3rem;
   border: none;
   grid-column: 2/4;
-  @include lg {
-    grid-column: 6/9;
-  }
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+ 
   &:focus {
     outline: none;
+    border: 1px solid white;
   }
 
   &:hover {
